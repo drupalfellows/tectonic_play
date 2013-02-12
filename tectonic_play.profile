@@ -15,5 +15,5 @@ function tectonic_play_form_install_configure_form_alter(&$form, $form_state) {
   $t = get_t();
 
   // Pre-populate the site name with the server name.
-  $form['site_information']['site_name']['#default_value'] = $t('The Iterators');
+  $form['site_information']['site_name']['#default_value'] = $t('Tectonic Play');
 }
