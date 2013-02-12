@@ -1,0 +1,4 @@
+name = Drupal Fellowship Tectonic Play
+description = Drupal Fellowship Tectonic Play install profiles
+version = VERSION
+core = 7.x

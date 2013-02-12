@@ -1,4 +1,4 @@
-tectonic_play
+drupalacademy
 =============
 
-Tectonic Play Fellowship Team
+Drupal Academy
