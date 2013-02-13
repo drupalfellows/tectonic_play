@@ -12,9 +12,22 @@
  * @see system_install()
  */
 function tectonic_play_install() {
+  
+  //Try to install custom_config().
+  module_enable(array('custom_config'));
+  cache_clear_all();
+
+  //Set the default module_enable, but check to see if we can use our custom.
+  $module_enable = 'module_enable';
+  if (module_exists('custom_config') && function_exists('custom_config_module_enable')){
+    $module_enable = 'custom_config_module_enable';
+  }
+
   // Enable modules
-  module_enable(array(
+  $module_enable(array(
+    
     // Contrib
+    'update',
     'admin_menu',
     'block',
     'ctools',
@@ -40,6 +53,12 @@ function tectonic_play_install() {
     'token',
     'translation',
     'variable',
+    'field_ui',
+
+    // Custom modules.
+    'custom_config',
+
+    // Features modules.
     )
   );
 }
