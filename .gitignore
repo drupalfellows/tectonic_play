@@ -1,0 +1,13 @@
+#System
+.DS_Store
+*.tar.gz
+*.zip
+*.bak
+*~
+*.komodoproject
+nbproject
+*.class
+
+#Project
+*/contrib/
+libraries/
