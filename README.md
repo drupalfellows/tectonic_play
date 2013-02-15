@@ -14,7 +14,7 @@ Prerequisites:
 Steps to Install:
 ----------------
 
-Step 1: You will navigating to your basic http directory and install the drupal core files. You can do this by executing the following drush command:
+Step 1: You will be navigating to your basic http directory and installing the drupal core files. Once in your http/www directory, you can do this by executing the following drush command:
 
 <pre>
 drush dl drupal
@@ -65,7 +65,7 @@ There could be a few issues when running this.  One is if you do not have execut
 chmod u+x rebuild.sh
 </pre>
 
-Another would be if somehow you don't have access to write in your drush cache directories. you would locate your .drush directory (often times it will be a hidden directory in your home directory and either change the owner or set the permissions to be able to write in those cache directories
+Another problem could be if somehow you don't have access to write in your drush cache directories. you would locate your .drush directory (often times it will be a hidden directory in your home directory and either change the owner or set the permissions to be able to write in those cache directories
 
 Step 5: To install drupal, you will need a few folders and files to be writeable by the server,  you would go to the mydrupal/sites/default folder and run the following commands:
 <pre>
@@ -76,10 +76,31 @@ chmod g+w files
 chmod g+w ../default
 </pre>
 
+
+Extra Information
+-----------------
+
+These set the permissions for these files and directory to be writeable by the group associated with the file.  You can check who the user/group is for a file by running the command :
+<pre>
+marc@ordeau:/var/www/vhosts/da$ ls -al
+total 260
+drwxrwxr-x  9 marc www-data  4096 Feb 13 14:30 .
+drwxrwxr-x 11 marc www-data  4096 Feb  9 11:46 ..
+-rw-rw-r--  1 marc www-data  6553 Feb  9 11:45 authorize.php
+-rw-rw-r--  1 marc www-data 74911 Feb  9 11:45 CHANGELOG.txt
+-rw-rw-r--  1 marc www-data  1481 Feb  9 11:45 COPYRIGHT.txt
+-rw-rw-r--  1 marc www-data   720 Feb  9 11:45 cron.php
+...
+</pre>
+
+Here we can see that the user for these files is "marc" and the group owner is "www-data".  Apache is part of this group so we are giving apache permission to write to those files.
+
+
+
 You are now ready to install your profile.  You should doublecheck you've done the following things:
 * downloaded drupal core
 * cloned the git repo for your profile into /profiles
-* create a database for your site
+* created a database for your site
 * created a settings.php file, a files directory and changed permissions on the necessary files and folders to be able to run the install.
 * run the rebuild.sh script and confirmed that it downloaded the modules it was supposed to.
 
@@ -91,7 +112,7 @@ Git Workflow
 Creating and committing a branch
 --------------------------------
 
-When committing changes to the repository, you will first give yourself a local branch specific to the task you are working on.  If you are using an issue tracker, it is customary to include the Issue Id in the name of the branch so that people can find the issue that relates to your branch.  Suppose we wanted to edit this README.md file and append some additional instructions to it.  We begin by creating a branch to work on:
+When committing changes to the repository, you will first give yourself a local branch specific to the task you are working on.  If you are using an issue tracker, it is customary to include the issue id in the name of the branch so that people can find the issue that relates to your branch.  Suppose we wanted to edit this README.md file and append some additional instructions to it.  We begin by creating a branch to work on:
 <pre>
 /profiles/projectname>git checkout -b 01-adding-blah-to-readme
 Switched to a new branch '01-adding-blah-to-readme'
@@ -209,7 +230,6 @@ git push -u origin 02-added-event-feature
 </pre>
 
 Your new feature should now be in a branch on the remote repository, ready to be merged.
-
 
 
 
