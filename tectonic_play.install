@@ -59,6 +59,7 @@ function tectonic_play_install() {
     'custom_config',
 
     // Features modules.
+	'speaker_profile',
     )
   );
 }
