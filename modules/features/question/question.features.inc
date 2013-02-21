@@ -22,7 +22,7 @@ function question_node_info() {
     'question_' => array(
       'name' => t('Question'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A Question asked by a user.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
