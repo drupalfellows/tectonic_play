@@ -1,0 +1,252 @@
+<?php
+// $Id: question_answer.module,v 1.5.2.3 2010/11/09 14:43:19 jcisio Exp $
+
+/** @file
+ * This module add the question/answer ability to a node type.
+ * By jcisio
+ */
+
+/**
+ * Implements hook_init().
+ */
+function question_answer_init() {
+  drupal_add_css(drupal_get_path('module', 'question_answer') . '/question_answer.css');
+}
+
+/**
+ * Implements hook_menu().
+ */
+function question_answer_menu() {
+  $items['question_answer/select'] = array(
+    'title' => 'Select answer',
+    'page callback' => 'question_answer_select',
+    'page arguments' => array(2, 3, 4),
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,
+    'file' => 'question_answer.pages.inc',
+  );
+  $items['admin/config/question_answer'] = array(
+    'title' => 'Question/Answer',
+    'description' => 'Allows the admin to configure the Q/A settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('question_answer_settings'),
+    'file' => 'question_answer.pages.inc',
+    'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function question_answer_form_node_form_alter(&$form, $form_state, $form_id) {
+  if ($maxlength = variable_get('question_answer_maxlength', 0)) {
+    $qtype = _question_answer_nodetypes();
+    if (in_array($form['type']['#value'], array_keys($qtype))) {
+      $form['title']['#maxlength'] = $maxlength;
+    }
+  } 
+}
+
+/**
+ * Implements hook_theme().
+ */
+function question_answer_theme() {
+  return array(
+    'question_answer_formatter_answer' => array(
+      'render element' => array('element' => NULL),
+    ),
+    'question_answer_formatter_duration' => array(
+      'render element' => array('element' => NULL),
+    ),
+    'question_answer_answer' => array(
+      'variables' => array('node' => NULL, 'comment' => NULL, 'account' => NULL),
+      'template' => 'question_answer-answer',
+    ),
+  );
+}
+
+/**
+ * Implements hook_comment_delete().
+ */
+function question_answer_comment_delete($comment) {
+  // check if comment is selected
+}
+
+/**
+ * Implements hook_comment_update().
+ */
+function question_answer_comment_update($comment) {
+  // check if comment is selected
+}
+
+/**
+ * Implements hook_comment_view().
+ *
+ * Add a "select answer" link to comment
+ */
+function question_answer_comment_view($comment, $view_mode, $langcode) {
+  global $user;
+
+  $qtype = _question_answer_nodetypes();
+  $node_type = substr($comment->node_type, strlen('comment_node_'));
+  $field_name = $qtype[$node_type]['answer'];
+
+  if (!in_array($node_type, array_keys($qtype))) {
+    // Not in the correct node type
+    return;
+  }
+
+  $node = node_load($comment->nid);
+  if (!is_array($answer = $node->$field_name)) {
+    // This node doesnot have the correct field
+    // Normally this should not happen
+    return;
+  }
+
+  if ((empty($answer['und']) || empty($answer['und'][0]['value'])) && ($node->uid == $user->uid)) {
+    $link = 'question_answer/select/' . $comment->cid;
+    $comment->content['links']['comment']['#links']['question_answer-select'] = array(
+      'title' => t('select'),
+      'href' => $link . '/nojs/' . drupal_get_token($link),
+      'html' => TRUE,
+      'attributes' => array(
+        'title' => t('Select this comment.'),
+        'class' => 'use-ajax',
+      ),
+    );
+    drupal_add_js('misc/ajax.js');
+  }
+}
+
+/**
+ * Implements hook_comment_view_alter().
+ */
+function question_answer_comment_view_alter(&$build) {
+//var_dump($build['#comment']);return;
+//  krumo($build);return;  
+}
+
+/**
+ * Override or insert variables into the comment templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ */
+function question_answer_preprocess(&$variables, $hook) {
+  if ($hook !== 'comment') return;
+
+  $qtype = _question_answer_nodetypes();
+  $node = node_load($variables['comment']->nid);
+
+  if (in_array($node->type, array_keys($qtype)) && $variables['comment']->cid === $node->{$qtype[$node->type]['answer']}['und'][0]['value']) {
+    $variables['classes_array'][] = 'question_answer-selected';
+  }
+}
+
+/**
+ * Declare information about a formatter.
+ *
+ * @return
+ *   An array keyed by formatter name. Each element of the array is an associative
+ *   array with these keys and values:
+ *   - "label": The human-readable label for the formatter.
+ *   - "field types": An array of field type names that can be displayed using
+ *     this formatter.
+ */
+function question_answer_field_formatter_info() {
+  return array(
+    'answer' => array(
+      'label' => t('Selected answer'),
+      'field types' => array('number_integer'),
+    ),
+    'duration' => array(
+      'label' => t('Remaining time'),
+      'field types' => array('number_integer'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function question_answer_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'answer':
+      foreach ($items as $delta => $item) {
+        if (empty($item['value'])) {
+          continue;
+        }
+
+        $comment = comment_load($items[0]['value']);
+        $node = node_load($comment->nid);
+        $element[$delta] = array(
+          '#theme' => 'question_answer_answer',
+          '#node' => $node,
+          '#comment' => $comment,
+          '#account' => user_load($comment->uid),
+        );
+      }
+      break;
+    case 'duration':
+      foreach ($items as $delta => $item) {
+        if (empty($item['value'])) {
+          continue;
+        }
+
+        $node = $entity;
+        $qtype = _question_answer_nodetypes();
+        $answer = $node->{$qtype[$node->type]['answer']}['und'][0]['value'];
+    
+        // Only display this field if no answer is selected
+        if (empty($answer)) {
+          $remain = $item['value'] + $node->created - time();
+    
+          // If expired, select an answer
+          if ($remain < 0 && module_exists('votingapi')) {
+            if (empty($node->{$qtype[$node->type]['answer']}['und'][0]['value'])) {
+              $selected = array('cid' => 0, 'value' => 0);
+              $result = db_query('SELECT cid FROM {comment} WHERE nid=:nid ORDER BY created', array(':nid' => $node->nid));
+              foreach ($result as $row) {
+                $votes = votingapi_select_results(array('entity_id' => $row->cid, 'entity_type' => 'comment', 'function' => 'sum'));
+                if (count($votes) > 0 && $votes[0]['value'] > $selected['value']) {
+                  $selected['cid'] = $row->cid;
+                  $selected['value'] = $votes[0]['value'];
+                }
+              }
+    
+              if ($selected['cid'] > 0) {
+                $node = node_load($node->nid);
+                $node->{$qtype[$node->type]['answer']}['und'][0]['value'] = $selected['cid'];
+                node_save($node);
+                drupal_set_message(t('Comment #!cid has automatically been selected as the best answer', array('!cid' => $selected['cid'])));
+              }
+            }
+          }
+          $element[$delta]['#markup'] = $remain > 0 ? format_interval($remain) : 'expired';
+        }
+      }
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Retrieve all node types that support Q/A
+ * The API is generic so that it supports multiple nodetypes/fields
+ */
+function _question_answer_nodetypes() {
+  static $nodetypes;
+
+  if (! $nodetypes) {
+    $nodetypes = array(variable_get('question_answer_nodetype', 'question') => array(
+      'answer' => variable_get('question_answer_fieldtype', 'field_answer'),
+      'duration' => variable_get('question_answer_duration', 'field_duration'),
+    ));
+  }
+
+  return $nodetypes;
+}

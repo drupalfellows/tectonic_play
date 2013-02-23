@@ -1,0 +1,15 @@
+; $Id: question_answer.info,v 1.1.4.1 2010/10/10 15:33:56 jcisio Exp $
+name = Question/Answer
+description = Convert one node type into Question/Answer
+core = 7.x
+
+files[] = question_answer-answer.tpl.php
+files[] = question_answer.module
+files[] = question_answer.pages.inc
+
+; Information added by drupal.org packaging script on 2010-11-09
+version = "7.x-1.6"
+core = "7.x"
+project = "question_answer"
+datestamp = "1289314902"
+
