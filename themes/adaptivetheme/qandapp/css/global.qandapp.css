@@ -1,7 +1,37 @@
 body{
 	background: url('images/background.png');
+<<<<<<< HEAD
 	color: #FFFFFF;
 	font-family: --insertfonthere--;
+=======
+	color: #FFF;
+
+}
+
+/* =============================================================================
+ *   Links
+ * ========================================================================== */
+
+a {
+  text-decoration: none;
+}
+
+a:link, 
+a:visited {
+	color: #FFF;
+}
+
+a:active,
+a.active {
+	color: #C60;
+}
+
+a:hover {
+	color: #C60;
+}
+a:focus {
+	color: #C60;
+>>>>>>> link hover states etc.
 }
 
 a:link, a:visited{
