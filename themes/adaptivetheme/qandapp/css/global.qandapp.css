@@ -1,7 +1,17 @@
 body{
 	background: url('images/background.png');
-	color: #FFFFFF;
-	font-family: --insertfonthere--;
+	color: #fff;
+	/*font-family: --insertfonthere--; */
+	
+
+}
+
+/* =============================================================================
+ *   Links
+ * ========================================================================== */
+
+a {
+  text-decoration: none;
 }
 
 .region-header {
@@ -12,12 +22,17 @@ body{
 	float:right;
 }
 
-a:link, a:visited{
-	color: #CCCCCC;
+a:link, 
+a:visited {
+	color: #FFF;
 }
 
+a:active,
+a.active {
+	color: #C60;
+}
 
-a:hover{}
-
-a:active{}
+a:hover {
+	color: #C60;
+}
 
