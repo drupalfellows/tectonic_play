@@ -1,4 +1,14 @@
 body{
 	background: url('images/background.png');
 	color: #FFFFFF;
+	font-family: --insertfonthere--;
 }
+
+a:link, a:visited{
+	color: #CCCCCC;
+}
+
+
+a:hover{}
+
+a:active{}

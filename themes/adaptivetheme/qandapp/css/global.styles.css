@@ -242,11 +242,11 @@ var {
  * Logo
  */
 #logo {
-  padding: 10px 0;
+  padding: 0;
 }
 
 #logo img {
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 /*
@@ -288,7 +288,8 @@ var {
 /*
  * Main content header wraps the page title, tabs and actions links
  */
-#main-content-header {}
+#main-content-header {
+}
 
 /*
  * The main page title (h1)
@@ -375,7 +376,8 @@ ul.links li {
 /*
  * Header region, embedded in the #header
  */
-.region-header {}
+.region-header {
+}
 
 /*
  * Generally used to output Drupals help block, if the help module is enabled
