@@ -83,8 +83,6 @@ function adaptivetheme_subtheme_process_node(&$vars) {
 }
 
 function qandapp_form_alter (&$form, &$form_state, $form_id) {
-	dsm($form);
-	dsm($form_id);
 	if ($form_id == 'question__node_form'){
 		$node = menu_get_object();
 		if ($node->type == 'talk'){
