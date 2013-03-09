@@ -1,10 +1,8 @@
 body{
 	background: url('images/background.png');
-<<<<<<< HEAD
 	color: #FFFFFF;
-	font-family: --insertfonthere--;
-=======
-	color: #FFF;
+	/*font-family: --insertfonthere--; */
+	
 
 }
 
@@ -29,16 +27,4 @@ a.active {
 a:hover {
 	color: #C60;
 }
-a:focus {
-	color: #C60;
->>>>>>> link hover states etc.
-}
 
-a:link, a:visited{
-	color: #CCCCCC;
-}
-
-
-a:hover{}
-
-a:active{}

@@ -3492,4 +3492,11 @@ tr.error {}
   min-height: 260px;
   width: auto;
 }
->>>>>>> link hover states etc.
+
+.region-leaderboard {
+	float: right;
+}
+
+#branding {
+	float:left;
+}
