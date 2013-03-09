@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
  * @file
  * global.styles
@@ -493,8 +493,11 @@ a:focus {
 .nav ul.menu li a:focus {}
 
 .nav .block {
+    float: right;
   margin-bottom: 0;
 }
+
+
 
 
 /* =============================================================================
