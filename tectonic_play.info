@@ -2,3 +2,8 @@ name = Drupal Fellowship Tectonic Play
 description = Drupal Fellowship Tectonic Play install profiles
 version = VERSION
 core = 7.x
+
+
+tectonic_play_update_1(&$sandbox){
+	module_enable(array('conference', 'speaker', 'question-','talk','speaker_user','speaker_profile','references','nodereference_url','viewreference','flag','dlike','linkedin','linkedin_auth','linkedin_profile','oauth','auto_nodetitle','exclude_node_title','eva','views_slideshow'));
+}

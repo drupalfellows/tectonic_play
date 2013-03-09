@@ -22,9 +22,9 @@ function speaker_profile_node_info() {
     'speaker_profile' => array(
       'name' => t('Speaker Profile'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('The profile information displayed for the profile of a speaker-type user.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Name'),
       'help' => '',
     ),
   );

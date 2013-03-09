@@ -1,0 +1,10 @@
+name = Audience Menu
+description = A special menu item for audience users (i.e. regular users).
+core = 7.x
+package = Features
+version = 7.x-1.0-beta1
+project = audience_menu
+features[features_api][] = api:1
+features[menu_custom][] = menu-audience
+features_exclude[dependencies][features] = features
+features_exclude[dependencies][menu] = menu
