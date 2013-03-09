@@ -172,7 +172,9 @@ var {
  * Wraps the leaderboard
  */
 #leaderboard-wrapper {}
-#leaderboard-wrapper .container {}
+#leaderboard-wrapper .container {
+
+	}
 
 /*
  * Wraps the header
@@ -181,7 +183,8 @@ var {
   /* Debug styles, is this working */
   background: rgba(255, 192, 203, 0.5);
 }
-#header-wrapper .container {}
+#header-wrapper .container {
+}
 
 /*
  * Wraps the nav elements

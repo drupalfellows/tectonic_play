@@ -64,12 +64,38 @@ function adaptivetheme_subtheme_process_page(&$vars) {
 /**
  * Override or insert variables into the node templates.
  */
-/* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_node(&$vars) {
+function qandapp_preprocess_node(&$vars) {
+	//For content node of type talk, display a link for the 
+	//	corresponding questions slideshow
+	
+	if ($vars['type'] == 'talk') {
+		$vars['slideshow_link'] = l('Questions Slideshow', 'talk/'.$vars['nid'].'/slideshow', array('absolute' => TRUE));
+
+
+		// Display a form to add a Question
+		$node = array();
+		$node['type'] = 'question_';
+		module_load_include('inc', 'node', 'node.pages');
+		$vars['question_form'] = drupal_render(drupal_get_form('question__node_form', (object) $node));
+	}
 }
 function adaptivetheme_subtheme_process_node(&$vars) {
 }
-// */
+
+function qandapp_form_alter (&$form, &$form_state, $form_id) {
+	dsm($form);
+	dsm($form_id);
+	if ($form_id == 'question__node_form'){
+		$node = menu_get_object();
+		if ($node->type == 'talk'){
+			$form['field_talk']['und']['0']['nid']['#type'] = 'value';
+			$form['field_talk']['und']['0']['nid']['#value'] = $node->nid;
+
+	
+		}
+	}
+	
+}
 
 
 /**
