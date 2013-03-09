@@ -44,10 +44,10 @@ function question_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'text_plain',
           'weight' => '0',
         ),
         'full' => array(
@@ -152,9 +152,8 @@ function question_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
+          'type' => 'hidden',
           'weight' => '0',
         ),
         'full' => array(
@@ -181,19 +180,26 @@ function question_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_talk',
       'label' => 'Talk',
-      'required' => FALSE,
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'module' => 'options',
+        'active' => 1,
+        'module' => 'nodereference_url',
         'settings' => array(
           'autocomplete_match' => 'contains',
           'edit_fallback' => 0,
           'fallback' => 'select',
-          'node_link' => array(),
+          'node_link' => array(
+            'destination' => 'node',
+            'full' => 1,
+            'hover_title' => '',
+            'teaser' => 0,
+            'title' => 'Ask a Question',
+          ),
         ),
-        'type' => 'options_select',
+        'type' => 'nodereference_url',
         'weight' => '6',
       ),
     ),

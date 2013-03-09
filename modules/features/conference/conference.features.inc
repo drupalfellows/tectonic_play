@@ -22,7 +22,7 @@ function conference_node_info() {
     'conference' => array(
       'name' => t('Conference'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Contains Talks. Created by ??'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
