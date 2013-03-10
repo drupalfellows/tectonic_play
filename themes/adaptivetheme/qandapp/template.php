@@ -66,10 +66,14 @@ function adaptivetheme_subtheme_process_page(&$vars) {
  */
 function qandapp_preprocess_node(&$vars) {
 	//For content node of type talk, display a link for the 
-	//	corresponding questions slideshow
+	//corresponding questions slideshow
 	
 	if ($vars['type'] == 'talk') {
-		$vars['slideshow_link'] = l('Questions Slideshow', 'talk/'.$vars['nid'].'/slideshow', array('absolute' => TRUE));
+		// make it so that only the speaker for this talk can see the slideshow
+			dsm($vars);
+		if (TRUE) {
+			$vars['slideshow_link'] = l('Questions Slideshow', 'talk/'.$vars['nid'].'/slideshow', array('absolute' => TRUE));
+		}
 
 
 		// Display a form to add a Question
@@ -78,17 +82,25 @@ function qandapp_preprocess_node(&$vars) {
 		module_load_include('inc', 'node', 'node.pages');
 		$vars['question_form'] = drupal_render(drupal_get_form('question__node_form', (object) $node));
 	}
+	if ($vars['type'] == 'conference'){
+		dsm($vars);
+	}
 }
 function adaptivetheme_subtheme_process_node(&$vars) {
 }
 
 function qandapp_form_alter (&$form, &$form_state, $form_id) {
+	global $user;
+	
+	// alter add Question node form on the Talk page
 	if ($form_id == 'question__node_form'){
 		$node = menu_get_object();
 		if ($node->type == 'talk'){
 			$form['field_talk']['und']['0']['nid']['#type'] = 'value';
 			$form['field_talk']['und']['0']['nid']['#value'] = $node->nid;
-
+			$form['author']['name']['#type'] = 'item';
+			$form['author']['name']['#value'] = $form['author']['name']['#default_value'];
+			$form['author']['name']['#markup'] = theme('username', array('account' => $user));
 	
 		}
 	}
