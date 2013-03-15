@@ -19,15 +19,8 @@ body{
 }
 
 a {
-  text-decoration: none;
-}
-
-.region-header {
-}
-
-
-#block-menu-menu-audience {
-	float:right;
+  text-decoration: none;	
+  font-weight: bold;
 }
 
 a:link, 
@@ -36,11 +29,20 @@ a:visited {
 }
 
 a:active,
-a.active {
+a.active ,
+a:hover{
 	color: #C60;
 }
 
-a:hover {
+#tasks {
+	color: #000;
+}
+
+#tasks a:link, a:visited{
+	color: #000;
+}
+
+#tasks a:active, a:hover{
 	color: #C60;
 }
 
