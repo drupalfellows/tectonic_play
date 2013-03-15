@@ -1,0 +1,10 @@
+name = Q&App User Menu
+description = This is the Menu that the user uses to toggle between pages, ie. Profile Page, Question backlog, Speaker page
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = q_app_user_menu
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:1
+features[menu_custom][] = menu-user-menu

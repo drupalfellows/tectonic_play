@@ -8,7 +8,7 @@ html {
 
 body{
 	color: #fff;
-	/*font-family: --insertfonthere--; */
+	font-family: 'Roboto', sans-serif;
 	
 
 }
@@ -20,29 +20,30 @@ body{
 
 a {
   text-decoration: none;	
-  font-weight: bold;
 }
 
 a:link, 
 a:visited {
-	color: #FFF;
+	color: #C60;
 }
 
 a:active,
 a.active ,
 a:hover{
-	color: #C60;
+	color: #FFF;
 }
 
 #tasks {
 	color: #000;
 }
 
-#tasks a:link, a:visited{
+#tasks a:link, #tasks a:visited{
 	color: #000;
+	text-decoration: underline;
 }
 
-#tasks a:active, a:hover{
+#tasks a:active, #tasks a:hover{
 	color: #C60;
+	text-decoration: none;
 }
 

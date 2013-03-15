@@ -58,6 +58,7 @@
 <!--[if IE 8]><html class="lt-ie9"<?php print $html_attributes; ?>><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html<?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 <head>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,100,100italic' rel='stylesheet' type='text/css'>
 <?php print $head; ?>
 <title><?php print $head_title; ?></title>
 <?php print $styles; ?>
