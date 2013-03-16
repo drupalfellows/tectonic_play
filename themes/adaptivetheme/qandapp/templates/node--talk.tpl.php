@@ -127,12 +127,15 @@ hide($content['links']);
   <div<?php print $content_attributes; ?>>
     <?php print render($content['field_conference']); ?>
     <?php print render($content['field_talk_description']); ?>
+    <?php print render($content['field_speaker']); ?> 
+<!-- invariant: "is_talk_speaker" exists in vars -->
+<?php if ($is_talk_speaker){  
+	echo "<p>";
+ 	 print $slideshow_link; 
+	echo "</p>";
+} ?>
+
 </br>
-<p>
-
-    <?php print $slideshow_link; ?>
-</p>
-
 <!-- begin toggle question form visibility -->
 
 <script type="text/javascript">
@@ -152,7 +155,7 @@ hide($content['links']);
 </a>
   </div>
 <p>
-<a href="#add_question" onclick="toggle_visibility('question_form');">Click here to toggle Question Form</a>
+<a href="#add_question" onclick="toggle_visibility('question_form');">Ask a Question?</a>
 </p>
 
 <!-- end toggle question form visibility -->

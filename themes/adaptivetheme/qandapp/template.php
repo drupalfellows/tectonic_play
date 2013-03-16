@@ -63,33 +63,30 @@ function adaptivetheme_subtheme_process_page(&$vars) {
 }
 // */
 
-function mytheme_preprocess_user_login(&$vars) {
-  $variables['intro_text'] = t('This is my awesome login form');
-  $variables['rendered'] = drupal_render_children($variables['form']);
-}
-
-
 /**
  * Override or insert variables into the node templates.
  */
 function qandapp_preprocess_node(&$vars) {
+	global $user;
 	if ($vars['type'] == 'talk') {	
-		/*For content node of type talk, display a link for the 
+		/*For content node of type talk, create a link for the 
 		 *corresponding questions slideshow
 		 */	
 		$vars['slideshow_link'] = l('Questions Slideshow',
 			'talk/'.$vars['nid'].'/slideshow', 
 			array('absolute' => TRUE));
-		// current user is the speaker of the talk
-
+		// current user is the speaker of the talk	
+		if ($vars['content']['field_speaker']['0']['#title'] == $user->name){
+			$vars['is_talk_speaker'] = TRUE;
+		} else {
+			$vars['is_talk_speaker'] = FALSE;
+		}
 		// Display a form to add a Question
 		$node = array();
 		$node['type'] = 'question_';
 		module_load_include('inc', 'node', 'node.pages');
 		$vars['question_form'] = drupal_render(drupal_get_form(
 			'question__node_form', (object) $node));
-	}else if ($vars['type'] == 'question') {
-
 	}
 
 }
