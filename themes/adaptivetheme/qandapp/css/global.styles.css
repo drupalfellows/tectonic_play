@@ -119,7 +119,8 @@ var {
  * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
  */
 #page {}
-#page .container {}
+#page .container {
+}
 
 /*
  * Wraps all header elements - branding and .region-header
@@ -134,7 +135,9 @@ var {
 /*
  * Main content column wrapper
  */
-#content-column {}
+#content-column {
+	background-color:rgba(255,255,255,0.1);
+}
 
 /*
  * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column

@@ -72,15 +72,16 @@ function qandapp_preprocess_node(&$vars) {
 		/*For content node of type talk, create a link for the 
 		 *corresponding questions slideshow
 		 */	
+		dsm($vars);
 		$vars['slideshow_link'] = l('Questions Slideshow',
 			'talk/'.$vars['nid'].'/slideshow', 
 			array('absolute' => TRUE));
 		// current user is the speaker of the talk	
-		if ($vars['content']['field_speaker']['0']['#title'] == $user->name){
+//		if ($vars['content']['field_speaker']['0']['#title'] == $user->name){
 			$vars['is_talk_speaker'] = TRUE;
-		} else {
-			$vars['is_talk_speaker'] = FALSE;
-		}
+//		} else {
+//			$vars['is_talk_speaker'] = FALSE;
+//		}
 		// Display a form to add a Question
 		$node = array();
 		$node['type'] = 'question_';

@@ -135,7 +135,6 @@ hide($content['links']);
 	echo "</p>";
 } ?>
 
-</br>
 <!-- begin toggle question form visibility -->
 
 <script type="text/javascript">
