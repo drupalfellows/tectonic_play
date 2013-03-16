@@ -173,9 +173,7 @@ var {
  * Wraps the leaderboard
  */
 #leaderboard-wrapper {}
-#leaderboard-wrapper .container {
-
-	}
+#leaderboard-wrapper .container {}
 
 /*
  * Wraps the header
@@ -483,7 +481,7 @@ a:focus {
 .nav li a,
 .nav ul.menu li a {
   display: block;
-  white-space: nowrap;
+/*  white-space: nowrap;*/
   padding: 0 10px;
 }
 
@@ -5249,10 +5247,10 @@ tr.error {}
 }
 
 .region-leaderboard {
-	float: right;
 }
 
 #branding {
 	float:left;
+	
 }
->>>>>>> 95d4fbaa7b11f3af670cc79c1ec885b19a3366d0
+

@@ -104,7 +104,6 @@
 hide($content['comments']);
 hide($content['links']);
 ?>
-
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
 
@@ -126,9 +125,7 @@ hide($content['links']);
   <?php endif; ?>
 
   <div<?php print $content_attributes; ?>>
-    <?php print $slideshow_link; ?>
     <?php print render($content); ?>
-    <?php print $question_form; ?>
   </div>
 
   <?php if ($links = render($content['links'])): ?>

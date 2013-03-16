@@ -9,16 +9,18 @@
  * such preprocess, process, alters, and theme function overrides.
  *
  * Preprocess and process functions are used to modify or create variables for
- * templates and theme functions. They are a common theming tool in Drupal, often
- * used as an alternative to directly editing or adding code to templates. Its
- * worth spending some time to learn more about these functions - they are a
- * powerful way to easily modify the output of any template variable.
- * 
- * Preprocess and Process Functions SEE: http://drupal.org/node/254940#variables-processor
+ * templates and theme functions. They are a common theming tool in Drupal, 
+ * often used as an alternative to directly editing or adding code to 
+ * templates. It's worth spending some time to learn more about these functions
+ *  - they are a powerful way to easily modify the output of any template 
+ * variable.
+ *
+ * Preprocess and Process Functions SEE: 
+ *		http://drupal.org/node/254940#variables-processor
  * 1. Rename each function and instance of "adaptivetheme_subtheme" to match
- *    your subthemes name, e.g. if your theme name is "footheme" then the function
- *    name will be "footheme_preprocess_hook". Tip - you can search/replace
- *    on "adaptivetheme_subtheme".
+ *    your subthemes name, e.g. if your theme name is "footheme" then the 
+ *    function name will be "footheme_preprocess_hook". Tip - you can 
+ *    search/replace on "adaptivetheme_subtheme".
  * 2. Uncomment the required function to use.
  */
 
@@ -66,26 +68,26 @@ function adaptivetheme_subtheme_process_page(&$vars) {
  * Override or insert variables into the node templates.
  */
 function qandapp_preprocess_node(&$vars) {
-	//For content node of type talk, display a link for the 
-	//corresponding questions slideshow
-	
 	if ($vars['type'] == 'talk') {
-		// make it so that only the speaker for this talk can see the slideshow
-			dsm($vars);
-		if (TRUE) {
-			$vars['slideshow_link'] = l('Questions Slideshow', 'talk/'.$vars['nid'].'/slideshow', array('absolute' => TRUE));
-		}
-
+		
+		/*For content node of type talk, display a link for the 
+		 *corresponding questions slideshow
+		 */	
+		$vars['slideshow_link'] = l('Questions Slideshow',
+			'talk/'.$vars['nid'].'/slideshow', 
+			array('absolute' => TRUE));
+		// current user is the speaker of the talk
 
 		// Display a form to add a Question
 		$node = array();
 		$node['type'] = 'question_';
 		module_load_include('inc', 'node', 'node.pages');
-		$vars['question_form'] = drupal_render(drupal_get_form('question__node_form', (object) $node));
-	}
-	if ($vars['type'] == 'conference'){
+		$vars['question_form'] = drupal_render(drupal_get_form(
+			'question__node_form', (object) $node));
+	}else if ($vars['type'] == 'question') {
 		dsm($vars);
 	}
+
 }
 function adaptivetheme_subtheme_process_node(&$vars) {
 }
@@ -97,11 +99,15 @@ function qandapp_form_alter (&$form, &$form_state, $form_id) {
 	if ($form_id == 'question__node_form'){
 		$node = menu_get_object();
 		if ($node->type == 'talk'){
-			$form['field_talk']['und']['0']['nid']['#type'] = 'value';
-			$form['field_talk']['und']['0']['nid']['#value'] = $node->nid;
+			$form['field_talk']['und']['0']['nid']['#type'] = 
+				'value';
+			$form['field_talk']['und']['0']['nid']['#value'] = 
+				$node->nid;
 			$form['author']['name']['#type'] = 'item';
-			$form['author']['name']['#value'] = $form['author']['name']['#default_value'];
-			$form['author']['name']['#markup'] = theme('username', array('account' => $user));
+			$form['author']['name']['#value'] = 
+				$form['author']['name']['#default_value'];
+			$form['author']['name']['#markup'] = 
+				theme('username', array('account' => $user));
 	
 		}
 	}
