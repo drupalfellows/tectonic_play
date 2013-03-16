@@ -1,0 +1,9 @@
+name = Q&App Organizer User
+description = Permissions to create, edit and delete Conferences, Speaker Profiles and Talks.
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = q_app_organizer_user
+dependencies[] = features
+features[features_api][] = api:1
+features[user_role][] = organizer user
