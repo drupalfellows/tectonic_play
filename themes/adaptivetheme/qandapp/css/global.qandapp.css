@@ -16,7 +16,7 @@ body{
 
 }
 
-#page{
+#page, #page-login{
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale');
 	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale')";
 }
@@ -94,3 +94,14 @@ a:hover{
 	text-decoration: none;
 }
 
+
+/* ------------- For the login page ------------- */
+
+#block-user-login {
+	background: #FF0000;
+}
+
+/* ------------- For the "add question" form ------------- */
+
+#question_form {
+}

@@ -88,14 +88,9 @@
  * @see adaptivetheme_process_page()
  */
 
-switch ($_GET['q']) {
-case 'user/login':
-  include 'page-login.tpl.php'; return;
-  break;
-}
 ?>
 
-<div id="page" class="container <?php print $classes; ?>">
+<div id="page-login" class="container <?php print $classes; ?>">
 
   <!-- region: Leaderboard -->
   <?php print render($page['leaderboard']); ?>

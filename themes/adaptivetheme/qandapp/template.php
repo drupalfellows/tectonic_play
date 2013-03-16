@@ -22,8 +22,8 @@
  *    function name will be "footheme_preprocess_hook". Tip - you can 
  *    search/replace on "adaptivetheme_subtheme".
  * 2. Uncomment the required function to use.
- */
 
+ */
 
 /**
  * Preprocess variables for the html template.
@@ -63,13 +63,17 @@ function adaptivetheme_subtheme_process_page(&$vars) {
 }
 // */
 
+function mytheme_preprocess_user_login(&$vars) {
+  $variables['intro_text'] = t('This is my awesome login form');
+  $variables['rendered'] = drupal_render_children($variables['form']);
+}
+
 
 /**
  * Override or insert variables into the node templates.
  */
 function qandapp_preprocess_node(&$vars) {
-	if ($vars['type'] == 'talk') {
-		
+	if ($vars['type'] == 'talk') {	
 		/*For content node of type talk, display a link for the 
 		 *corresponding questions slideshow
 		 */	
@@ -85,7 +89,7 @@ function qandapp_preprocess_node(&$vars) {
 		$vars['question_form'] = drupal_render(drupal_get_form(
 			'question__node_form', (object) $node));
 	}else if ($vars['type'] == 'question') {
-		dsm($vars);
+
 	}
 
 }
@@ -135,3 +139,47 @@ function adaptivetheme_subtheme_preprocess_block(&$vars) {
 function adaptivetheme_subtheme_process_block(&$vars) {
 }
 // */
+
+/**
+* This snippet loads a custom page-login.tpl.php layout file when
+* users click through to the login, request password or register pages
+*/
+
+function _phptemplate_variables($hook, $variables = array()) {
+  switch ($hook) {
+    case 'page':
+      global $user;
+      if (arg(0) == 'user'){
+        if (!$user->uid) { //check to see if the user is logged in. If not display the special login page layout
+          $variables['template_file'] = 'page-login';
+        }
+        elseif (arg(1) == 'login' || arg(1) == 'register' || arg(1) == 'password' ) {
+          $variables['template_file'] = 'page-login';
+        }
+      }
+      break;
+  }
+
+  return $variables;
+}
+
+/*
+ *  Implements hook_theme().
+ */
+function HOOK_theme() {
+  return array(
+    'user_register_form' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'user-register',  // exclude the tpl.php
+    ),
+    'user_login' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'user-login',  
+    ),
+    'user_pass' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'user-password',  
+    ),
+  );
+}
+

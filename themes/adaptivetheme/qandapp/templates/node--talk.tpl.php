@@ -104,7 +104,6 @@
 hide($content['comments']);
 hide($content['links']);
 ?>
-
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
 
@@ -126,10 +125,38 @@ hide($content['links']);
   <?php endif; ?>
 
   <div<?php print $content_attributes; ?>>
+    <?php print render($content['field_conference']); ?>
+    <?php print render($content['field_talk_description']); ?>
+</br>
+<p>
+
     <?php print $slideshow_link; ?>
-    <?php print render($content); ?>
-    <?php print $question_form; ?>
+</p>
+
+<!-- begin toggle question form visibility -->
+
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
+
+<a id="add_question">
+<div id="question_form" style="display:none;"><?php print $question_form; ?></div>
+</a>
   </div>
+<p>
+<a href="#add_question" onclick="toggle_visibility('question_form');">Click here to toggle Question Form</a>
+</p>
+
+<!-- end toggle question form visibility -->
+    <?php print render($content['questions_entity_view_1']); ?>
 
   <?php if ($links = render($content['links'])): ?>
     <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
@@ -139,3 +166,5 @@ hide($content['links']);
 
   <?php print render($title_suffix); ?>
 </article>
+
+
