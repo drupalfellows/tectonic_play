@@ -21,6 +21,18 @@ body{
 	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale')";
 }
 
+
+h1 #page-title{
+	background: #000;
+}
+
+/*
+ * Main content column wrapper
+ */
+#content-column {
+	background-color:rgba(255,255,255,0.1);
+}
+
 /* ------------- Region Overrides ------------- */ 
 
 /*
@@ -32,20 +44,35 @@ body{
 
 
 /* For the top navigation types */
-.region-leaderboard ul li, 
-#block-system-user-menu ul li, 
-#block-system-user-menu ul,
+/*#menu-bar ul li,*/
+/*#block-system-user-menu ul li,*/
 .nav li a,
-.nav ul.menu li a 
+.nav ul.menu li a
 {
-	white-space: nowrap;
-	display: inline; 
+	display: block; 
+	width: 100px;
 	list-style-type: none;
 	padding: 0 5px;
+	margin: 0 5px;
+	text-align: center;
+	background-color:rgba(255,255,255,0.05);
+}
+.nav li a:hover,
+.nav ul.menu li a:hover 
+{
+	display: block; 
+	background-colour: #000000;
+	width: 100px;
+	list-style-type: none;
+	padding: 0 5px;
+	margin: 0 5px;
+	text-align: center;
+	background-color:rgba(0,0,0,0.3);
 }
 
 
 /* Make leaderboard list items & menu bar items seperated by a slash. */
+/*
 .region-leaderboard ul li:after, #menu-bar ul li:after {
 	content: " / ";
  }
@@ -55,11 +82,11 @@ body{
 .region-leaderboard ul li.last: ,, #menu-bar ul li.last: {
 	content: " ";
  }
-
+*/
 
 .nav .block {
-    float: left;
-  margin-bottom: 0;
+    float: right;
+ 	 margin-bottom: 0;
 }
 
 /* ------------- Link Style Overrides ------------- */ 
@@ -95,13 +122,44 @@ a:hover{
 }
 
 
-/* ------------- For the login page ------------- */
+/* ------------- For the login form ------------- */
 
 #block-user-login {
-	background: #FF0000;
+	
 }
 
-/* ------------- For the "the question" form ------------- */
+
+#block-user-login .textInput{
+	
+}
+
+/* ------------- For the "ask question" form ------------- */
 
 #question_form {
 }
+
+/* ------------- LinkedIn Profile ------------- */ 
+.linkedin-profile{
+}
+
+.linkedin-profile ul{
+	margin-top: 0;
+}
+
+
+/* ------------- For questions list/ talk node------------- */
+
+.question-list {
+	background:#FF0000;
+}
+
+.talk-left-col {
+	padding: 5px;
+
+	background:#FF0000;
+}
+.talk-right-col {
+	padding: 5px;
+	background:#FF0000;
+}
+

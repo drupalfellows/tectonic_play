@@ -57,6 +57,12 @@ function talk_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'questions_entity_view_2' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

@@ -40,6 +40,9 @@ function question_strongarm() {
       'questions' => array(
         'custom_settings' => TRUE,
       ),
+      'display_conference_password' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

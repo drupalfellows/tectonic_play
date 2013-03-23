@@ -1,0 +1,108 @@
+
+/* ------------- Base Overrides ------------- */ 
+
+html { 
+	background: url('images/background.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body{
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	
+
+}
+
+#page, #page-login{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale')";
+}
+
+/* ------------- Region Overrides ------------- */ 
+
+/*
+ * Wraps all header elements - branding and .region-header
+ */
+#branding {
+	margin-top: 0;
+}
+
+
+/* For the top navigation types */
+#menu-bar ul li,
+.region-leaderboard ul li, 
+#block-system-user-menu ul li, 
+#block-system-user-menu ul,
+.nav li a,
+.nav ul.menu li a 
+{
+	white-space: nowrap;
+	display: inline; 
+	list-style-type: none;
+	padding: 0 5px;
+}
+
+
+/* Make leaderboard list items & menu bar items seperated by a slash. */
+.region-leaderboard ul li:after, #menu-bar ul li:after {
+	content: " / ";
+ }
+.region-leaderboard ul li.last:after, #menu-bar ul li.last:after {
+	content: "";
+ }
+.region-leaderboard ul li.last: ,, #menu-bar ul li.last: {
+	content: " ";
+ }
+
+
+.nav .block {
+    float: left;
+  margin-bottom: 0;
+}
+
+/* ------------- Link Style Overrides ------------- */ 
+
+a {
+  text-decoration: none;	
+}
+
+a:link, 
+a:visited {
+	color: #C60;
+}
+
+a:active,
+a.active, 
+a.active-trail.active,
+a:hover{
+	color: #FFF;
+}
+
+#tasks {
+	color: #000;
+}
+
+#tasks a:link, #tasks a:visited{
+	color: #000;
+	text-decoration: underline;
+}
+
+#tasks a:active, #tasks a:hover{
+	color: #C60;
+	text-decoration: none;
+}
+
+
+/* ------------- For the login page ------------- */
+
+#block-user-login {
+	background: #FF0000;
+}
+
+/* ------------- For the "the question" form ------------- */
+
+#question_form {
+}

@@ -44,7 +44,7 @@ function question_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_plain',
@@ -89,15 +89,16 @@ function question_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_question',
       'label' => 'Question',
-      'required' => FALSE,
+      'required' => 1,
       'settings' => array(
-        'text_processing' => 0,
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
         'weight' => '3',
@@ -151,7 +152,7 @@ function question_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '0',
@@ -193,7 +194,7 @@ function question_field_default_fields() {
           'fallback' => 'select',
           'node_link' => array(
             'destination' => 'node',
-            'full' => 1,
+            'full' => 0,
             'hover_title' => '',
             'teaser' => 0,
             'title' => 'Ask a Question',

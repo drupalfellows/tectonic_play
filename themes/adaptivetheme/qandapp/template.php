@@ -31,7 +31,6 @@
 
 function qandapp_preprocess_html(&$vars) {
   global $theme_key;
-
   // Two examples of adding custom classes to the body.
   
   // Add a body class for the active theme name.
@@ -63,16 +62,16 @@ function adaptivetheme_subtheme_process_page(&$vars) {
 }
 // */
 
-/**
+/**	
  * Override or insert variables into the node templates.
  */
 function qandapp_preprocess_node(&$vars) {
 	global $user;
+	dsm($vars['theme_hook_suggestions']);
 	if ($vars['type'] == 'talk') {	
 		/*For content node of type talk, create a link for the 
 		 *corresponding questions slideshow
 		 */	
-		dsm($vars);
 		$vars['slideshow_link'] = l('Questions Slideshow',
 			'talk/'.$vars['nid'].'/slideshow', 
 			array('absolute' => TRUE));
@@ -117,67 +116,6 @@ function qandapp_form_alter (&$form, &$form_state, $form_id) {
 }
 
 
-/**
- * Override or insert variables into the comment templates.
- */
-/* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_comment(&$vars) {
-}
-function adaptivetheme_subtheme_process_comment(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the block templates.
- */
-/* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_block(&$vars) {
-}
-function adaptivetheme_subtheme_process_block(&$vars) {
-}
-// */
-
-/**
-* This snippet loads a custom page-login.tpl.php layout file when
-* users click through to the login, request password or register pages
-*/
-
-function _phptemplate_variables($hook, $variables = array()) {
-  switch ($hook) {
-    case 'page':
-      global $user;
-      if (arg(0) == 'user'){
-        if (!$user->uid) { //check to see if the user is logged in. If not display the special login page layout
-          $variables['template_file'] = 'page-login';
-        }
-        elseif (arg(1) == 'login' || arg(1) == 'register' || arg(1) == 'password' ) {
-          $variables['template_file'] = 'page-login';
-        }
-      }
-      break;
-  }
-
-  return $variables;
-}
-
-/*
- *  Implements hook_theme().
- */
-function HOOK_theme() {
-  return array(
-    'user_register_form' => array(
-      'arguments' => array('form' => NULL),
-      'template' => 'user-register',  // exclude the tpl.php
-    ),
-    'user_login' => array(
-      'arguments' => array('form' => NULL),
-      'template' => 'user-login',  
-    ),
-    'user_pass' => array(
-      'arguments' => array('form' => NULL),
-      'template' => 'user-password',  
-    ),
-  );
+function qandapp_flag_link (){
 }
 
