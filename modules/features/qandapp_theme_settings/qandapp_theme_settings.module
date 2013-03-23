@@ -1,11 +1,12 @@
-D	<?php
+<?php
 /**
  * @file
  * Code for the QAndApp Theme Settings feature.
  */
 
-include_once 'qandapp_theme_settings.features.inc';
 
+include_once 'qandapp_theme_settings.features.inc';
+function qandapp_install_blocks() {
  return array(
     'main_menu' => array(
       'module' => 'system',
@@ -14,4 +15,4 @@ include_once 'qandapp_theme_settings.features.inc';
       'delta' => 'user-menu',
     ),
   );
-}
+} 
