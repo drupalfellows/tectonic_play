@@ -82,7 +82,9 @@ function tectonic_play_install() {
 	'question_',
 	'talk',
 	'speaker_user',
-	'conference'
+	'conference', 
+	'qandapp_views', 
+	'qandapp_theme_settings', 
 	
     )
   );
