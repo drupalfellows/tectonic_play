@@ -1,0 +1,9 @@
+<?php 
+
+function qandapp_theme_settings_install() {
+
+  // Run the custom_config install to safely install components.
+ custom_config_install_module('qandapp_theme_settings');
+}
+
+?>

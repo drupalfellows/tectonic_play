@@ -100,7 +100,7 @@ projects[references][subdir] = contrib
 projects[references][version] = 2.1
 
 projects[viewreference][subdir] = contrib
-projects[viewreferences][version] = 3.4
+projects[viewreference][version] = 3.4
 
 projects[views][subdir] = contrib
 projects[views][version] = 3.5

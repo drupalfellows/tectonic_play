@@ -1,7 +1,17 @@
-<?php
+D	<?php
 /**
  * @file
  * Code for the QAndApp Theme Settings feature.
  */
 
 include_once 'qandapp_theme_settings.features.inc';
+
+ return array(
+    'main_menu' => array(
+      'module' => 'system',
+      'title' => 'User menu',
+      'region' => 'menu_bar',
+      'delta' => 'user-menu',
+    ),
+  );
+}
