@@ -62,6 +62,9 @@ function tectonic_play_install() {
 	'speaker_profile',
 	'linkedin_settings',
 	'question_',
+	'talk',
+	'speaker_user',
+	'conference'
 	
     )
   );
