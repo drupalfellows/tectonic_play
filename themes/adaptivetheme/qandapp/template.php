@@ -97,7 +97,7 @@ function qandapp_form_alter (&$form, &$form_state, $form_id) {
 	global $user;
 	
 	// alter add Question node form on the Talk page
-	if ($form_id == 'question__node_form'){
+	if ($form_id == 'question_node_form'){
 		$node = menu_get_object();
 		if ($node->type == 'talk'){
 			$form['field_talk']['und']['0']['nid']['#type'] = 

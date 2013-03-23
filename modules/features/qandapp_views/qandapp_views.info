@@ -1,0 +1,14 @@
+name = QAndApp Views
+core = 7.x
+package = Features
+version = 7.x-1.0-beta1
+project = qandapp_views
+dependencies[] = ctools
+dependencies[] = flag
+dependencies[] = location
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = conferences
+features[views_view][] = questions
+features[views_view][] = talks

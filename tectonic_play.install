@@ -29,6 +29,7 @@ function tectonic_play_install() {
     // Contrib
     'update',
     'admin_menu',
+    'auto_nodetitle',
     'block',
     'ctools',
     'date',
@@ -37,23 +38,40 @@ function tectonic_play_install() {
     'dblog',
     'email',
     'entity',
+    'eva',
+    'exclude_node_title',
     'features',
+    'field_ui',
     'file',
+    'gmap',
     'i18n',
     'image',
+    'linkedin',
     'list',
     'locale',
+    'location',
     'menu',
+    'name',
+    'nodereference_url',
     'number',
+    'oauth',
     'options',
     'panels',
     'path',
     'pathauto',
+    'profile2',
+    'references',
     'strongarm',
     'token',
     'translation',
     'variable',
-    'field_ui',
+    'views',
+    'views_bulk_operations',
+    'views_ui',
+    'views_slideshow',
+    'views_slideshow_slider',
+    'viewreference',
+    
 
     // Custom modules.
     'custom_config',
@@ -69,4 +87,6 @@ function tectonic_play_install() {
     )
   );
 }
+
+
 

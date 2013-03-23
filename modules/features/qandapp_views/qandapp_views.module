@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the QAndApp Views feature.
+ */
+
+include_once 'qandapp_views.features.inc';
