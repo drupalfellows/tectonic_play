@@ -1,6 +1,0 @@
-name = DLike for QAndApp
-description = 
-core = 
-package = QAndApp
-dependencies[] = flags
-dependencies[] = dlike
