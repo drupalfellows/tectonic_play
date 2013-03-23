@@ -94,47 +94,48 @@ case 'user/login':
   break;
 }
 ?>
-
+<!-- region: Leaderboard -->
+  <?php print render($page['leaderboard']); ?>
+    <div class="header-wrap">
+      <header<?php print $header_attributes; ?>>
+    
+        <?php if ($site_logo || $site_name || $site_slogan): ?>
+          <!-- start: Branding -->
+          <div<?php print $branding_attributes; ?>>
+    
+            <?php if ($site_logo): ?>
+              <div id="logo">
+                <?php print $site_logo; ?>
+              </div>
+            <?php endif; ?>
+    
+            <?php if ($site_name || $site_slogan): ?>
+              <!-- start: Site name and Slogan hgroup -->
+              <hgroup<?php print $hgroup_attributes; ?>>
+    
+                <?php if ($site_name): ?>
+                  <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
+                <?php endif; ?>
+    
+                <?php if ($site_slogan): ?>
+                  <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
+                <?php endif; ?>
+    
+              </hgroup><!-- /end #name-and-slogan -->
+            <?php endif; ?>
+    
+          </div><!-- /end #branding -->
+        <?php endif; ?>
+    
+        <!-- region: Header -->
+        <?php print render($page['header']); ?>
+    
+      </header>
+    </div>
+    
 <div id="page" class="container <?php print $classes; ?>">
 
-  <!-- region: Leaderboard -->
-  <?php print render($page['leaderboard']); ?>
-
-  <header<?php print $header_attributes; ?>>
-
-    <?php if ($site_logo || $site_name || $site_slogan): ?>
-      <!-- start: Branding -->
-      <div<?php print $branding_attributes; ?>>
-
-        <?php if ($site_logo): ?>
-          <div id="logo">
-            <?php print $site_logo; ?>
-          </div>
-        <?php endif; ?>
-
-        <?php if ($site_name || $site_slogan): ?>
-          <!-- start: Site name and Slogan hgroup -->
-          <hgroup<?php print $hgroup_attributes; ?>>
-
-            <?php if ($site_name): ?>
-              <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
-            <?php endif; ?>
-
-            <?php if ($site_slogan): ?>
-              <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
-            <?php endif; ?>
-
-          </hgroup><!-- /end #name-and-slogan -->
-        <?php endif; ?>
-
-      </div><!-- /end #branding -->
-    <?php endif; ?>
-
-    <!-- region: Header -->
-    <?php print render($page['header']); ?>
-
-  </header>
-
+  
   <!-- Navigation elements -->
   <?php print render($page['menu_bar']); ?>
   <?php if ($primary_navigation): print $primary_navigation; endif; ?>
