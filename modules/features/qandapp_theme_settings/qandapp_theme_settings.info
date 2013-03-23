@@ -1,0 +1,13 @@
+name = QAndApp Theme Settings
+core = 7.x
+package = Features
+version = 7.x-1.0-beta1
+project = qandapp_theme_settings
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = theme_default
+features[variable][] = theme_qandapp_files_directory
+features[variable][] = theme_qandapp_settings
+features[variable][] = theme_settings

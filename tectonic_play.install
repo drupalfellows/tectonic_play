@@ -60,6 +60,9 @@ function tectonic_play_install() {
 
     // Features modules.
 	'speaker_profile',
+	'linkedin_settings',
+	'question_',
+	
     )
   );
 }

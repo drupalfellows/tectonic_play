@@ -67,7 +67,7 @@ function adaptivetheme_subtheme_process_page(&$vars) {
  */
 function qandapp_preprocess_node(&$vars) {
 	global $user;
-	dsm($vars['theme_hook_suggestions']);
+//	dsm($vars['theme_hook_suggestions']);
 	if ($vars['type'] == 'talk') {	
 		/*For content node of type talk, create a link for the 
 		 *corresponding questions slideshow
@@ -116,6 +116,98 @@ function qandapp_form_alter (&$form, &$form_state, $form_id) {
 }
 
 
-function qandapp_flag_link (){
+/**
+ * This function is part of flag.module file.
+ * This function is overridden here.
+ */
+function qandapp_flag_link($type, $object = NULL, $teaser = FALSE) {
+	var_dump('lsjhjasd');
+	die();
+  if (!isset($object) || !flag_fetch_definition($type)) {
+    return;
+  }
+  global $user;
+
+  // Get all possible flags for this content-type.
+  $flags = flag_get_flags($type);
+
+  foreach ($flags as $flag) {
+    $content_id = $flag->get_content_id($object);
+
+    if (!$flag->uses_hook_link($teaser)) {
+      // Flag is not configured to show its link here.
+      continue;
+    }
+    if (!$flag->access($content_id) && (!$flag->is_flagged($content_id) || !$flag->access($content_id, 'flag'))) {
+      // User has no permission to use this flag or flag does not apply to this
+      // content. The link is not skipped if the user has "flag" access but
+      // not "unflag" access (this way the unflag denied message is shown).
+      continue;
+    }
+    
+    $dlike_append = qandapp_append($type, $flag->get_content_id($object), $flag->name);
+
+    // The flag links are actually fully rendered theme functions.
+    // The HTML attribute is set to TRUE to allow whatever the themer desires.
+    $links['flag-' . $flag->name] = array(
+      'title' => $flag->theme($flag->is_flagged($content_id) ? 'unflag' : 'flag', $content_id) . $dlike_append,
+      'html' => TRUE,
+    );
+  }
+
+  if (isset($links)) {
+    return $links;
+  }
+}
+
+function qandapp_append($flag_type, $content_id, $flag_name) {
+    // Variables added for appending facebook like like string
+    // Check if facebook like likes is enabled for a flag
+    $dlike_status_value = variable_get('dlike-' . $flag_name . '_option', 0);
+
+    //add a condition for disabled flags
+    if ($dlike_status_value == 0) {
+      $dlike_append_link = '';
+    }
+    else {
+        // Get the list of all the users those flagged current content
+        // $dlike_append_names = dlike_user_list($type, $flag->get_content_id($object), $flag->name);
+        // Get the flag counts for a piece of content
+        $dlike_append_count = flag_get_counts($flag_type, $content_id);
+        if ($dlike_append_count && $dlike_append_count[$flag_name] > 0) {
+          // Get the text string set by the user
+          $dlike_text_value = variable_get('dlike-' . $flag_name . '_text_value', NULL);
+          // Pass the string through t().
+          $dlike_sanitize_string = t('@text', array('@text' => $dlike_text_value));
+          // If set, replace the token for count by actual count.
+          $dlike_append_string = str_replace('@count', $dlike_append_count[$flag_name], $dlike_sanitize_string);
+	$dlike_append_string = '<span class="element-invisible">'.$dlike_append_string.'</span>';
+          // Check if user has the right permissions
+          if (user_access('dlike access list')) {
+            // format link address.
+            $dlike_link_address = 'dlike/' . $flag_type . '/' . $content_id . '/' . $flag_name;
+            // format the attributed for l() function.
+            $dlike_link_arrtibutes = array();
+            $dlike_link_arrtibutes = array(
+              'html' => TRUE,
+              'attributes' => array(
+                'rel' => 'lightmodal[|width:400px; height:300px; scrolling: auto;]',
+                ),
+            );
+            // format the link to the list of users who flagged the content.
+            $dlike_append_link = '<span class="dlike-' . $flag_type . '-append-' . $content_id .'">' . l($dlike_append_string, $dlike_link_address, $dlike_link_arrtibutes) . '</span>';
+          }
+          else {
+            $dlike_append_link = $dlike_append_string;
+          }
+        }
+        else {
+          $dlike_append_link = '<span class="dlike-' . $flag_type . '-append-' . $content_id .'"></span>';
+        }
+    }
+    if (isset($_POST['method']) && $_POST['method']=='ajax') {
+      print $dlike_append_link; die();
+    }
+    return $dlike_append_link;
 }
 
