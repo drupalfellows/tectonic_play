@@ -16,6 +16,7 @@
   stylesheets[screen][] = css/global.base.css
   stylesheets[screen][] = css/global.styles.css
   stylesheets[screen][] = css/global.qandapp.css
+  stylesheets[screen][] = css/content.qandapp.css
 
   ; Print - uncomment to load basic print styles.
   ; stylesheets[print][] = css/print.css

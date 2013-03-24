@@ -35,11 +35,11 @@ if ($action == 'unflag'){$img_src = 'images/thumbsup_orange.png';}
 ?>
 <span class="<?php print $flag_wrapper_classes; ?>">
   <?php if ($link_href): ?>
-    <a href="<?php print $link_href; ?>" title="<?php print $link_title; ?>" class="<?php print $flag_classes ?>" rel="nofollow"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" /></a><br /><?php print $link_text; ?><span class="flag-throbber"></span>
+    <a href="<?php print $link_href; ?>" title="<?php print $link_title; ?>" class="<?php print $flag_classes ?>" rel="nofollow"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" width="30px" /></a><br /><?php print $link_text; ?><span class="flag-throbber"></span>
 
 
   <?php else: ?>
-<span class="<?php print $flag_classes ?>"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" /><br /><?php print $link_text; ?></span>
+<span class="<?php print $flag_classes ?>"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" width="30px"/><br /><?php print $link_text; ?></span>
   <?php endif; ?>
 
 </span>

@@ -28,19 +28,16 @@ body{
 
 h1#page-title, h1.page-title{
     margin-top: 10px;
-    background:rgba(0,0,0,0.2);
-    padding: 10px;
+    background:rgba(0,0,0,0.5);
+    padding: 10px 20px;
 }
 h2.title{
-    border-bottom: 2px solid #c60;
+    border-bottom: 2px solid #FF6633;
 }
 
-/*
- * Main content column wrapper
- */
-#content-column {
-	padding:0;
-	background-color:rgba(255,255,255,0.05);
+#content {
+	margin-top: 0;
+	background: rgba(0,0,0,0.25);
 }
 
 /* ------------- Region Overrides ------------- */ 
@@ -50,7 +47,7 @@ h2.title{
  */
  
 .header-wrap {
-	background: rgba(0,0,0,.25);
+	background: rgba(0,0,0,.5);
 }
 
 .header-wrap #header {
@@ -62,6 +59,7 @@ h2.title{
 #branding {
 	margin-top: 0;
 }
+
 
 
 /* For the top navigation types */
@@ -96,13 +94,13 @@ h2.title{
 .region-leaderboard ul li.last:after, #menu-bar ul li.last:after {
 	content: "";
  }
-.region-leaderboard ul li.last: ,, #menu-bar ul li.last: {
-	content: " ";
+.region-leaderboard ul li.last, #menu-bar ul li.last {
+	margin-right: 0;
+	padding-right: 0;
  }
-
 .nav .block {
-    float: right;
- 	 margin-bottom: 0;
+	float: right;
+	margin-bottom: 0;
 }
 
 
@@ -114,7 +112,7 @@ a {
 
 a:link, 
 a:visited {
-	color: #C60;
+	color: #FF6633;
 }
 
 a:active,
@@ -123,6 +121,12 @@ a.active,
 a.active-trail.active,
 a:hover{
 	color: #FFF;
+}
+
+#tasks {
+	background: rgba(0,0,0,.25);
+	padding: 2px 10px;
+	margin-top: 12px;
 }
 
 #tasks a{
@@ -134,14 +138,18 @@ a:hover{
 	border-bottom: 0;
 }
 
+#tasks ul li{
+	margin: 0 4px;
+}
+
 #tasks a:link, #tasks a:visited{	
-	background: #C60;
+	background: #FF6633;
 	border: 0;
 	text-decoration: none;
 }
 
 #tasks a:hover {
-	color: #C60;
+	color: #FF6633;
 	background: #fff;
 }
 
@@ -154,117 +162,3 @@ a:hover{
 }
 
 
-/* ------------- For questions list/ talk node------------- */
-
-.node-question- .view-mode-promoted_questions.field-name-author {
-    font-size: 2em;
-}
-
-.node-question- .view-mode-regular_questions.field-name-author {
-    font-size: 1.25em;
-}
-
-.node-question- {
-    padding-bottom: 4px;
-    margin: 0 0 5px;
-    border-bottom: 2px solid #c60;
-    background: rgba(255,255,255,0.1);
-}
-.node-question-.article.view-mode-regular_questions {
-    background: rgba(255,255,255,0.04);
-}
-
-
-.node-question- .group-left{
-    width: 60px;
-    margin-right: 15px;
-    padding: 2px;
-}
-.node-question-.view-mode-promoted_questions .links {
-    text-align: center;
-    width: 50px;
-    border: 3px solid white;
-    padding: 2px;
-    font-size: 1.75em;
-}
-
-.node-question-.view-mode-regular_questions .links {
-    text-align: center;
-    width: 50px;
-    border: 3px solid white;
-    padding: 2px;
-    font-size: 1.25em;
-}
-
-/* For the Questions slideshow */
-
-.node-question-.view-mode-question_slideshow  {
-    border: 0;
-    padding: 10px;
-    background: none;
-}
-
-
-.node-question-.view-mode-question_slideshow .field-name-author {
-    border: 0;
-    font-size: 2em;
-}
-
-
-.node-question-.view-mode-question_slideshow .field-name-field-question {
-    border: 0;
-    font-size: 4em;
-    background: rgba(0,0,0,0.2);
-    padding: 10px;
-}
-/* ------------- For conference list------------- */
-
-.view.view-conferences {
-    padding: 10px 0;
-}
-
-.view.view-conferences ul li{
-    background: rgba(255,255,255,0.05);
-    list-style-type: none;
-    margin: 10px 0;
-    padding: 5px;
-    border-bottom: 2px solid #C60;
-}
-
-
-/* ------------- For talk node------------- */
-
-h1.talk-title{
-    margin-top: 0;
-    background:rgba(0,0,0,0.2);
-    padding: 10px;
-}
-
-.view.view-talks {
-    padding: 10px 0;
-}
-
-.view.view-talks ul li{
-    background: rgba(255,255,255,0.05);
-    list-style-type: none;
-    margin: 10px 0;
-    padding: 5px;
-    border-bottom: 2px solid #C60;
-}
-
-.add-question-link {
-	padding: 5px;
-	margin: 20px 0;
-	background: #C60;
-	color: #fff;
-	border:0;
-}
-
-
-.add-question-link:hover{
-	padding: 5px;
-	margin: 20px 0;
-	background: #fff;
-	color: #000;
-	border:0;
-}
