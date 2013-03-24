@@ -31,7 +31,9 @@ function qandapp_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'conference_page';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -117,6 +119,10 @@ function qandapp_views_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'regular_questions';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
   /* Relationship: Flags: like counter */
   $handler->display->display_options['relationships']['flag_count_rel']['id'] = 'flag_count_rel';
   $handler->display->display_options['relationships']['flag_count_rel']['table'] = 'node';
@@ -212,6 +218,11 @@ function qandapp_views_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'question_slideshow';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['use_ajax_flags'] = array(
+    'like' => 'like',
+  );
+  $handler->display->display_options['use_ajax_flags_noscrolltop'] = 1;
+  $handler->display->display_options['use_ajax_flags_widget'] = 'throbber';
   $handler->display->display_options['path'] = 'talk/slideshow/%';
 
   /* Display: EVA Field */
@@ -225,6 +236,22 @@ function qandapp_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '3';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<?php
+$interval = 5000;
+print theme(\'views_autorefresh\', $interval);
+?>';
+  $handler->display->display_options['header']['area']['format'] = 'ds_code';
+  $handler->display->display_options['use_ajax_flags'] = array(
+    'like' => 'like',
+  );
+  $handler->display->display_options['use_ajax_flags_noscrolltop'] = 1;
+  $handler->display->display_options['use_ajax_flags_widget'] = 'throbber';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'talk',
@@ -245,6 +272,22 @@ function qandapp_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promoted_questions';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<?php
+$interval = 1000;
+print theme(\'views_autorefresh\', $interval);
+?>';
+  $handler->display->display_options['header']['area']['format'] = 'ds_code';
+  $handler->display->display_options['use_ajax_flags'] = array(
+    'like' => 'like',
+  );
+  $handler->display->display_options['use_ajax_flags_noscrolltop'] = 1;
+  $handler->display->display_options['use_ajax_flags_widget'] = 'throbber';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'talk',
@@ -274,7 +317,15 @@ function qandapp_views_views_default_views() {
     t('Questions Slideshow'),
     t('EVA Field'),
     t('Questions'),
+    t('<?php
+$interval = 5000;
+print theme(\'views_autorefresh\', $interval);
+?>'),
     t('EVA Field - Top 3'),
+    t('<?php
+$interval = 1000;
+print theme(\'views_autorefresh\', $interval);
+?>'),
   );
   $export['questions'] = $view;
 
