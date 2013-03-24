@@ -88,11 +88,6 @@
  * @see adaptivetheme_process_page()
  */
 
-switch ($_GET['q']) {
-case 'user/login':
-  include 'page-login.tpl.php'; return;
-  break;
-}
 ?>
 <!-- region: Leaderboard -->
   <?php print render($page['leaderboard']); ?>
@@ -173,13 +168,13 @@ case 'user/login':
 
               <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
                 <div id="tasks">
-                  <!-- <?php if ($primary_local_tasks): ?>
+                  <?php if ($primary_local_tasks): ?>
                     <ul class="tabs primary clearfix"><?php print render($primary_local_tasks); ?></ul>
                   <?php endif; ?>
 
                   <?php if ($secondary_local_tasks): ?>
                     <ul class="tabs secondary clearfix"><?php print render($secondary_local_tasks); ?></ul>
-                  <?php endif; ?> -->
+                  <?php endif; ?>
 
                   <?php if ($action_links = render($action_links)): ?>
                     <ul class="action-links clearfix"><?php print $action_links; ?></ul>

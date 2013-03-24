@@ -34,6 +34,15 @@ function conference_strongarm() {
       'display_conference_password' => array(
         'custom_settings' => TRUE,
       ),
+      'conference_page' => array(
+        'custom_settings' => TRUE,
+      ),
+      'promoted_questions' => array(
+        'custom_settings' => FALSE,
+      ),
+      'regular_questions' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -53,6 +62,10 @@ function conference_strongarm() {
           'display_conference_password' => array(
             'weight' => '10',
             'visible' => TRUE,
+          ),
+          'conference_page' => array(
+            'weight' => '10',
+            'visible' => FALSE,
           ),
         ),
       ),

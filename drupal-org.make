@@ -37,6 +37,9 @@ projects[diff][version] = 2.0
 projects[dlike][subdir] = contrib
 projects[dlike][version] = 1.1
 
+projects[ds][subdir] = contrib
+projects[ds][version] = 2.2
+
 projects[email][subdir] = contrib
 projects[email][version] = 1.2
 
@@ -69,6 +72,9 @@ projects[i18n][version] = 1.7
 ; Patch helps with installin from drush.
 projects[i18n][patch][] = "http://drupal.org/files/static_reset.patch"
 
+projects[libraries][subdir] = contrib
+projects[libraries][version] = 2.1
+
 projects[link][subdir] = contrib
 projects[link][version] = 1.0
 
@@ -99,6 +105,9 @@ projects[profile2][version] = 1.3
 projects[references][subdir] = contrib
 projects[references][version] = 2.1
 
+projects[rules][subdir] = contrib
+projects[rules][version] = 2.2
+
 projects[viewreference][subdir] = contrib
 projects[viewreference][version] = 3.4
 
@@ -128,8 +137,14 @@ projects[wysiwyg][version] = 2.2
 
 ; THEMES
 
+projects[omega] = 3.x
+
 ; LIBRARIES
 
 libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.3/ckeditor_3.6.3.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
+
+libraries[jquery.cycle][download][type] = get
+libraries[jquery.cycle][download][url] = http://malsup.com/jquery/cycle/release/jquery.cycle.zip?v3.01
+libraries[jquery.cycle][destination] = libraries

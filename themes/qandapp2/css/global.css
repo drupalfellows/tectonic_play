@@ -1,0 +1,105 @@
+
+html{
+   	background: url('images/background.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+    color:#fff;
+    font-family:'Roboto', sans-serif;
+}
+
+/* Fidgeting with the background in IE */
+#page {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/background.png', sizingMethod='scale')";
+}
+
+/* The top black translucent bar */
+#zone-branding {
+    background:rgba(0,0,0,0.25);
+}
+
+/* To remove any spacing at the top above the logo */
+#zone-user{
+    display:none;
+}
+
+/* Adding a white, translucent bkg to the content column */
+#region-content{
+	padding: 2px;
+	background-color:rgba(255,255,255,0.05);
+}
+
+.breadcrumb {
+	display:none;
+}
+
+/* ------------- Link Style Overrides ------------- */ 
+
+
+a:link, 
+a:visited {
+	color: #C60;
+	text-decoration: none;	
+}
+
+a:active,
+a.active, 
+a.active-trail.active,
+a:hover{
+	color: #FFF;
+	text-decoration: none;	
+}
+
+
+/* ------------- Title Style Overrides ------------- */ 
+
+h1, h2, h3, h4, h5, h6, h7{
+	font-family: 'Roboto',sans-serif;
+}
+
+h1#page-title{
+	background: rgba(0,0,0,0.2);
+	margin: 5px;
+}
+
+h2{
+	margin: 5px 10px 0;
+}
+
+/* ------------- Nav Style Overrides ------------- */ 
+.menu {
+	float: right;
+	padding: 10px 0 0;
+}
+.menu li{
+
+	display: inline;
+	list-style-type: none;
+}
+
+.menu li a{
+	margin: 0 10px 0 0;
+}
+
+/* Make a "/" appear between list items  */
+.menu li:after {
+	content: " / ";
+ }
+.menu li.last:after {
+	content: "";
+ }
+.menu li.last: {
+	content: " ";
+ }
+
+
+/* ------------- Content Styles ------------- */ 
+.node.node-conference {
+    padding:5px;
+}
+

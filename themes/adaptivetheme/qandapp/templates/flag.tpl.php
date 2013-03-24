@@ -30,18 +30,21 @@
  * advanced theming you may have to remove all the whitespace.
 
  */
-if ($action == 'flag'){$img_tag = '<img src="/themes/adaptivetheme/qandapp/images/thumbsup_white.png">';}
-if ($action == 'unflag'){$img_tag = '<img src="/themes/adaptivetheme/qandapp/images/thumbsup.png">';}
+if ($action == 'flag'){$img_src = 'images/thumbsup_white.png';}
+if ($action == 'unflag'){$img_src = 'images/thumbsup_orange.png';}
 ?>
 <span class="<?php print $flag_wrapper_classes; ?>">
   <?php if ($link_href): ?>
-    <a href="<?php print $link_href; ?>" title="<?php print $link_title; ?>" class="<?php print $flag_classes ?>" rel="nofollow"><?php print $img_tag ?></a><span class="flag-throbber">&nbsp;</span>
+    <a href="<?php print $link_href; ?>" title="<?php print $link_title; ?>" class="<?php print $flag_classes ?>" rel="nofollow"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" /></a><br /><?php print $link_text; ?><span class="flag-throbber"></span>
+
+
   <?php else: ?>
-    <span class="<?php print $flag_classes ?>"><?php print $img_tag ?></span>
+<span class="<?php print $flag_classes ?>"><img src="<?php print base_path().path_to_theme().'/'.$img_src ?>" /><br /><?php print $link_text; ?></span>
   <?php endif; ?>
+
+</span>
   <?php if ($after_flagging): ?>
     <span class="flag-message flag-<?php print $status; ?>-message">
       <?php print $message_text; ?>
     </span>
   <?php endif; ?>
-</span>

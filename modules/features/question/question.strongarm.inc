@@ -43,6 +43,18 @@ function question_strongarm() {
       'display_conference_password' => array(
         'custom_settings' => FALSE,
       ),
+      'promoted_questions' => array(
+        'custom_settings' => TRUE,
+      ),
+      'regular_questions' => array(
+        'custom_settings' => TRUE,
+      ),
+      'conference_page' => array(
+        'custom_settings' => FALSE,
+      ),
+      'question_slideshow' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -93,7 +105,7 @@ function question_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_question_';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_question_'] = $strongarm;
 
   $strongarm = new stdClass();

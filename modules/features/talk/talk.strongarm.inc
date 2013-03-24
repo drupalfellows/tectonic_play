@@ -34,6 +34,15 @@ function talk_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'conference_page' => array(
+        'custom_settings' => FALSE,
+      ),
+      'promoted_questions' => array(
+        'custom_settings' => FALSE,
+      ),
+      'regular_questions' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -47,20 +56,26 @@ function talk_strongarm() {
       'display' => array(
         'questions_entity_view_1' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),
         'questions_entity_view_1_form' => array(
           'default' => array(
-            'weight' => '9',
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
         'questions_entity_view_2' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '6',
             'visible' => TRUE,
+          ),
+        ),
+        'questions_entity_view_2_form' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => FALSE,
           ),
         ),
       ),

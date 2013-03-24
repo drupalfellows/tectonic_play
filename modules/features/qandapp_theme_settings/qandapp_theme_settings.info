@@ -1,6 +1,7 @@
 name = QAndApp Theme Settings
 core = 7.x
 package = Features
+php = 5.2.4
 version = 7.x-1.0-beta1
 project = qandapp_theme_settings
 dependencies[] = ctools

@@ -1,0 +1,45 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+#region-content{
+	width: 900px;
+}
+
+.view-content {
+    padding: 0 20px;
+}
+
+
+.node-question- .view-mode-promoted_questions.field-name-author {
+    font-size: 2em;
+}
+
+.node-question- .view-mode-regular_questions.field-name-author {
+    font-size: 1.5em;
+}
+
+.node-question- .view-mode-promoted_questions {
+}
+
+.node-question- .view-mode-regular_questions {
+
+}
+
+
+
+.node-question-.node-promoted .links {
+    text-align: center;
+    width: 50px;
+    border: 3px solid white;
+    padding: 2px;
+    font-size: 1.75em;
+}
+
+.block .region.region-two-33-66-first{
+	width:200px;
+	padding: 10px;
+}
+
+
+.node-question-.node-promoted .region-two-33-66-first{
+    width:75px;
+    padding:2px;
+}

@@ -128,36 +128,7 @@ hide($content['links']);
     <?php print render($content['field_conference']); ?>
     <?php print render($content['field_talk_description']); ?>
     <?php print render($content['field_speaker']); ?> 
-<!-- invariant: "is_talk_speaker" exists in vars -->
-<?php if ($is_talk_speaker){  
-	echo "<p>";
- 	 print $slideshow_link; 
-	echo "</p>";
-} ?>
 
-<!-- begin toggle question form visibility -->
-
-<script type="text/javascript">
-<!--
-    function toggle_visibility(id) {
-       var e = document.getElementById(id);
-       if(e.style.display == 'block')
-          e.style.display = 'none';
-       else
-          e.style.display = 'block';
-    }
-//-->
-</script>
-
-<a id="add_question">
-<div id="question_form" style="display:none;"><?php print $question_form; ?></div>
-</a>
-  </div>
-<p>
-<a href="#add_question" onclick="toggle_visibility('question_form');">Ask a Question?</a>
-</p>
-
-<!-- end toggle question form visibility -->
     <?php print render($content['questions_entity_view_1']); ?>
 
   <?php if ($links = render($content['links'])): ?>

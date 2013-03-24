@@ -36,6 +36,7 @@ function tectonic_play_install() {
     'date_api',
     'date_popup',
     'dblog',
+    'ds',
     'email',
     'entity',
     'eva',
@@ -46,6 +47,7 @@ function tectonic_play_install() {
     'gmap',
     'i18n',
     'image',
+    'libraries',
     'linkedin',
     'list',
     'locale',
@@ -59,8 +61,8 @@ function tectonic_play_install() {
     'panels',
     'path',
     'pathauto',
-    'profile2',
     'references',
+    'rules',
     'strongarm',
     'token',
     'translation',
@@ -77,14 +79,16 @@ function tectonic_play_install() {
     'custom_config',
 
     // Features modules.
-	'speaker_profile',
+	'conference', 
 	'linkedin_settings',
-	'question_',
+	'question',
 	'talk',
 	'speaker_user',
-	'conference', 
+	'q_app_organizer_user',
 	'qandapp_views', 
 	'qandapp_theme_settings', 
+	'qandapp_permissions',
+	'redirection_rules'
 	
     )
   );

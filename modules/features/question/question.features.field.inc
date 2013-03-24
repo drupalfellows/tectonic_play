@@ -48,7 +48,7 @@ function question_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_plain',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'full' => array(
           'label' => 'above',
@@ -64,6 +64,13 @@ function question_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'promoted_questions' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '3',
+        ),
         'question_listing' => array(
           'label' => 'above',
           'module' => 'text',
@@ -71,12 +78,26 @@ function question_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'question_slideshow' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '2',
+        ),
         'questions' => array(
           'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '0',
+        ),
+        'regular_questions' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -130,6 +151,7 @@ function question_field_default_fields() {
       'locked' => '0',
       'module' => 'node_reference',
       'settings' => array(
+        'profile2_private' => FALSE,
         'referenceable_types' => array(
           'conference' => 0,
           'question_' => 0,
@@ -153,9 +175,10 @@ function question_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
+          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '0',
+          'type' => 'node_reference_default',
+          'weight' => '7',
         ),
         'full' => array(
           'label' => 'above',
@@ -164,11 +187,29 @@ function question_field_default_fields() {
           'type' => 'node_reference_default',
           'weight' => '0',
         ),
+        'promoted_questions' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'question_slideshow' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
         'questions' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '0',
+        ),
+        'regular_questions' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -179,6 +220,7 @@ function question_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_talk',
       'label' => 'Talk',
       'required' => 1,
@@ -193,7 +235,7 @@ function question_field_default_fields() {
           'edit_fallback' => 0,
           'fallback' => 'select',
           'node_link' => array(
-            'destination' => 'node',
+            'destination' => 'default',
             'full' => 0,
             'hover_title' => '',
             'teaser' => 0,

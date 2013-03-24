@@ -1,0 +1,10 @@
+name = Redirection Rules
+description = Redirect page to talk after asking new question
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = redirection_rules
+dependencies[] = entity
+dependencies[] = rules
+features[features_api][] = api:1
+features[rules_config][] = rules_redirect_users_to_talk_page_after_new_question
