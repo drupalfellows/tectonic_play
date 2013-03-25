@@ -54,6 +54,7 @@ function tectonic_play_install() {
     'location',
     'menu',
     'name',
+    'nodejs',
     'nodereference_url',
     'number',
     'oauth',
@@ -77,6 +78,7 @@ function tectonic_play_install() {
 
     // Custom modules.
     'custom_config',
+    'views_flag_refresh',
 
     // Features modules.
 	'conference', 
@@ -85,9 +87,10 @@ function tectonic_play_install() {
 	'talk',
 	'speaker_user',
 	'q_app_organizer_user',
-	'qandapp_views', 
+	'qandapp_refreshments',	
 	'qandapp_theme_settings', 
 	'qandapp_permissions',
+	'qandapp_views', 
 	'redirection_rules'
 	
     )

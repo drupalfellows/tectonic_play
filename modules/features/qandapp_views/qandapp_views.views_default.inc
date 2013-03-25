@@ -249,7 +249,6 @@ print theme(\'views_autorefresh\', $interval);
     'like' => 'like',
   );
   $handler->display->display_options['use_ajax_flags_noscrolltop'] = 1;
-  $handler->display->display_options['use_ajax_flags_widget'] = 'throbber';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'talk',
@@ -285,7 +284,6 @@ print theme(\'views_autorefresh\', $interval);
     'like' => 'like',
   );
   $handler->display->display_options['use_ajax_flags_noscrolltop'] = 1;
-  $handler->display->display_options['use_ajax_flags_widget'] = 'throbber';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'talk',

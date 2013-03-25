@@ -87,6 +87,9 @@ projects[location][version] = 3.0-alpha1
 projects[name][subdir] = contrib
 projects[name][version] = 1.7
 
+projects[nodejs][subdir] = contrib
+projects[nodejs][version] = 1.0
+
 projects[nodereference_url][subdir] = contrib
 projects[nodereference_url][version] = 1.12
 

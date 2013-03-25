@@ -1,0 +1,15 @@
+name = QAndApp Refreshments
+core = 7.x
+package = Features
+dependencies[] = nodejs
+dependencies[] = nodejs_actions
+dependencies[] = nodejs_ajax
+dependencies[] = nodejs_config
+dependencies[] = strongarm
+dependencies[] = views_flag_refresh
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = nodejs_pages
+features[variable][] = nodejs_server_host
+features[variable][] = nodejs_server_port
+features[variable][] = nodejs_server_scheme

@@ -157,7 +157,8 @@ a:hover{
 
 #user-login,
 #user-register-form,
-#user-pass{
+#user-pass,
+#edit-profile-user-profile-form{
     padding: 20px;
 }
 

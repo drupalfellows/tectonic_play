@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the QAndApp Refreshments feature.
+ */
+
+include_once 'qandapp_refreshments.features.inc';
