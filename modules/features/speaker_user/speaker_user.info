@@ -1,5 +1,5 @@
 name = Speaker User
-description = Defines a speaker user and a special menu item for speakers.
+description = Defines a speaker user.
 core = 7.x
 package = Features
 php = 5.2.4

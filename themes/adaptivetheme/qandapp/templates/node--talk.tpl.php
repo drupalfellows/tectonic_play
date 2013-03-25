@@ -109,7 +109,7 @@ hide($content['links']);
 
   <?php if ($title && !$page): ?>
     <header<?php print $header_attributes; ?>>
-      <?php if ($title): ?>
+	<?php if ($title): ?> 
         <h1<?php print $title_attributes; ?>>
           <a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a>
         </h1>
@@ -125,11 +125,8 @@ hide($content['links']);
   <?php endif; ?>
 
   <div<?php print $content_attributes; ?>>
-    <?php print render($content['field_conference']); ?>
-    <?php print render($content['field_talk_description']); ?>
-    <?php print render($content['field_speaker']); ?> 
-
-    <?php print render($content['questions_entity_view_1']); ?>
+    <?php print render($content); ?>
+  </div>
 
   <?php if ($links = render($content['links'])): ?>
     <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
@@ -139,5 +136,3 @@ hide($content['links']);
 
   <?php print render($title_suffix); ?>
 </article>
-
-

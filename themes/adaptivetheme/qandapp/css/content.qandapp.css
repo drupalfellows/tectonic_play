@@ -12,9 +12,10 @@
     background: rgba(0,0,0,0.2);
     list-style-type: none;
 }
-
+.view.view-talks ul li:first,
 .view.view-talks ul li:last,
-.view-conferences ul li:last{
+.view-conferences ul li:last,
+.view-conferences ul li:first{
     margin: 0;
 
 }
@@ -32,9 +33,33 @@
 
 /* ------------- For talk node------------- */
 
+h2.title{
+	border-bottom: 2px solid #FF6633;
+	padding-left: 15px;
+	margin: 0;    
+}
+.field.field-name-field-talk-description{
+	padding: 10px;
+}
+
+.field.field-name-field-conference{
+	padding-left: 10px;
+}
+
+.field.field-name-field-speaker{
+	padding-left: 10px;
+}
+
+.field.field-name-slideshow{
+	padding-left: 10px;
+}
+
+.field.field-name-create-question-form{
+	padding: 10px;
+}
 .add-question-link {
 	padding: 5px;
-	margin: 20px 0;
+	margin: 10px 0;
 	background: #FF6633;
 	color: #fff;
 	border:0;
@@ -43,14 +68,18 @@
 
 .add-question-link:hover{
 	padding: 5px;
-	margin: 20px 0;
 	background: #fff;
 	color: #000;
 	border:0;
 }
+#add-question-form textarea{
+	width: 50%;
+}
+#add-question-form .grippie{
+	display: none;
+}
 
-
-/* ------------- For talk node's questions list------------- */
+/* For talk node's questions list */
 
 .node-question- .view-mode-promoted_questions.field-name-author {
     font-size: 2em;
@@ -63,11 +92,13 @@
 .node-question- {
     padding-bottom: 4px;
     margin: 0 0 5px;
-    border-bottom: 2px solid #FF6633;
-    background: rgba(255,255,255,0.1);
 }
+.node-question-.article.view-mode-promoted_questions {
+    background: rgba(102,102,102,0.5);
+}
+
 .node-question-.article.view-mode-regular_questions {
-    background: rgba(255,255,255,0.04);
+    background: rgba(0,0,0,0.25);
 }
 
 
@@ -79,7 +110,6 @@
 .node-question-.view-mode-promoted_questions .links {
     text-align: center;
     width: 50px;
-    border: 3px solid white;
     padding: 2px;
     font-size: 1.75em;
 }
@@ -87,7 +117,6 @@
 .node-question-.view-mode-regular_questions .links {
     text-align: center;
     width: 50px;
-    border: 3px solid white;
     padding: 2px;
     font-size: 1.5em;
 }
@@ -141,3 +170,5 @@
 	width: 150px;
 	align: left;
 }
+
+

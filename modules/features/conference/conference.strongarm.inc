@@ -43,6 +43,9 @@ function conference_strongarm() {
       'regular_questions' => array(
         'custom_settings' => FALSE,
       ),
+      'question_slideshow' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -56,7 +59,7 @@ function conference_strongarm() {
       'display' => array(
         'talks_entity_view_1' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'display_conference_password' => array(

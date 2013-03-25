@@ -10,6 +10,135 @@
 function conference_field_default_fields() {
   $fields = array();
 
+  // Exported field: 'node-conference-field_conference_location'.
+  $fields['node-conference-field_conference_location'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_conference_location',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'lid' => array(
+          0 => 'lid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'location_cck',
+      'settings' => array(
+        'gmap_macro' => '[gmap ]',
+        'gmap_marker' => 'drupal',
+        'location_settings' => array(
+          'display' => array(
+            'hide' => array(
+              'additional' => 0,
+              'city' => 0,
+              'coords' => 0,
+              'country' => 0,
+              'country_name' => 0,
+              'locpick' => 0,
+              'map_link' => 0,
+              'name' => 0,
+              'postal_code' => 0,
+              'province' => 0,
+              'province_name' => 0,
+              'street' => 0,
+            ),
+          ),
+          'form' => array(
+            'fields' => array(
+              'additional' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '6',
+              ),
+              'city' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '8',
+              ),
+              'country' => array(
+                'collect' => '1',
+                'default' => 'us',
+                'weight' => '14',
+              ),
+              'locpick' => array(
+                'collect' => '0',
+                'weight' => '20',
+              ),
+              'name' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '2',
+              ),
+              'postal_code' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '12',
+              ),
+              'province' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '10',
+                'widget' => 'autocomplete',
+              ),
+              'street' => array(
+                'collect' => '1',
+                'default' => '',
+                'weight' => '4',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'location',
+    ),
+    'field_instance' => array(
+      'bundle' => 'conference',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'conference_page' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'location_cck',
+          'settings' => array(),
+          'type' => 'location_default',
+          'weight' => '3',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_conference_location',
+      'label' => 'Location',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'location_cck',
+        'settings' => array(),
+        'type' => 'location',
+        'weight' => '33',
+      ),
+    ),
+  );
+
   // Exported field: 'node-conference-field_date'.
   $fields['node-conference-field_date'] = array(
     'field_config' => array(
@@ -69,7 +198,7 @@ function conference_field_default_fields() {
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => '1',
+          'weight' => '2',
         ),
         'display_conference_password' => array(
           'label' => 'above',
@@ -153,11 +282,11 @@ function conference_field_default_fields() {
           'weight' => '0',
         ),
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'display_conference_password' => array(
           'label' => 'above',
@@ -196,6 +325,7 @@ function conference_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Date');
   t('Description');
+  t('Location');
 
   return $fields;
 }

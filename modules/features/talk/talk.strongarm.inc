@@ -43,6 +43,9 @@ function talk_strongarm() {
       'regular_questions' => array(
         'custom_settings' => FALSE,
       ),
+      'question_slideshow' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -59,9 +62,25 @@ function talk_strongarm() {
             'weight' => '7',
             'visible' => TRUE,
           ),
+          'full' => array(
+            'weight' => '6',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '6',
+            'visible' => TRUE,
+          ),
         ),
         'questions_entity_view_1_form' => array(
           'default' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
             'weight' => '4',
             'visible' => TRUE,
           ),
@@ -71,9 +90,25 @@ function talk_strongarm() {
             'weight' => '6',
             'visible' => TRUE,
           ),
+          'full' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
         ),
         'questions_entity_view_2_form' => array(
           'default' => array(
+            'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '12',
             'visible' => FALSE,
           ),
@@ -112,7 +147,6 @@ function talk_strongarm() {
   $strongarm->name = 'node_options_talk';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_talk'] = $strongarm;
 

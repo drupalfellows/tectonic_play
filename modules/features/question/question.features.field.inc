@@ -231,7 +231,7 @@ function question_field_default_fields() {
         'active' => 1,
         'module' => 'nodereference_url',
         'settings' => array(
-          'autocomplete_match' => 'contains',
+          'autocomplete_match' => 'starts_with',
           'edit_fallback' => 0,
           'fallback' => 'select',
           'node_link' => array(
